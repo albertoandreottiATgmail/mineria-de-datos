@@ -1,0 +1,23 @@
+@relation weather.symbolic
+
+@attribute Estado {soleado, nublado, lluvioso}
+@attribute Temperatura {caluroso, templado, fresco}
+@attribute Humedad {alta, normal}
+@attribute Viento {verdadero, falso}
+@attribute JugarTenis {si, no}
+
+@data
+soleado,caluroso,alta,falso,no
+soleado,caluroso,alta,verdadero,no
+nublado,caluroso,alta,falso,si
+lluvioso,templado,alta,falso,si
+lluvioso,fresco,normal,falso,si
+lluvioso,fresco,normal,verdadero,no
+nublado,fresco,normal,verdadero,si
+soleado,templado,alta,falso,no
+soleado,fresco,normal,falso,si
+lluvioso,templado,normal,falso,si
+soleado,templado,normal,verdadero,si
+nublado,templado,alta,verdadero,si
+nublado,caluroso,normal,falso,si
+lluvioso,templado,alta,verdadero,no
