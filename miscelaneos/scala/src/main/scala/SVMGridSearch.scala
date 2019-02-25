@@ -3,10 +3,10 @@ import weka.classifiers.Classifier
 import weka.classifiers.Evaluation
 import weka.classifiers.functions.LibSVM
 import weka.core.{Instance, Instances}
+import weka.core.Instances
 import java.io.BufferedReader
 import java.io.FileReader
 import java.util.Random
-
 import weka.filters.Filter
 import weka.filters.supervised.instance.Resample
 
@@ -29,7 +29,6 @@ object SVMGridSearch {
     val randData = new Instances(reader)
     reader.close()
 
-
     randData.setClassIndex(randData.numAttributes - 1)
     randData.stratify(folds)
 
@@ -51,7 +50,6 @@ object SVMGridSearch {
     val outcomes = getLinearCandidates(3, 15, 2).par.map { cand =>
       val eTestb = new Evaluation(dataset)
       val c1Model: Classifier = new LibSVM()
-
       c1Model.setOptions(weka.core.Utils.splitOptions(cand.params))
 
       // using seed = 1
@@ -92,3 +90,4 @@ case class LinearParamSet(cc:Int) {
   override def toString: String = {s"cc:2^$cc"}
   val params = s"-S 0 -K 0 -D 3 -G 0.0 -R 0.0 -N 0.5 -M 40.0 -C ${Math.pow(2, cc)} -E 0.0010 -P 0.1 -Z"
 }
+
